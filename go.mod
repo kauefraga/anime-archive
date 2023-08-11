@@ -18,5 +18,5 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	gorm.io/driver/sqlite v1.5.2
-	gorm.io/gorm v1.25.3 // indirect
+	gorm.io/gorm v1.25.3
 )
