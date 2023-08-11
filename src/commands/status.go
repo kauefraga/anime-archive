@@ -24,7 +24,7 @@ func Status() *cobra.Command {
 
 	return &cobra.Command{
 		Use:   "status",
-		Short: "List the available and unavailable websites for watching anime",
+		Short: "List the available websites for watching anime",
 		Run: func(command *cobra.Command, arguments []string) {
 			fmt.Println("Here are the available websites:")
 
