@@ -14,11 +14,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func Catalog() *cobra.Command {
-	catalog := &cobra.Command{
-		Use:     "catalog",
+func List() *cobra.Command {
+	list := &cobra.Command{
+		Use:     "list",
 		Short:   "Query and show all the registered animes",
-		Example: "anime-archive catalog",
+		Example: "anime-archive list",
 		Run: func(command *cobra.Command, arguments []string) {
 			database := infra.InitDatabase()
 
@@ -53,5 +53,5 @@ func Catalog() *cobra.Command {
 		},
 	}
 
-	return catalog
+	return list
 }

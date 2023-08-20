@@ -18,7 +18,8 @@ func main() {
 	}
 
 	rootCmd.AddCommand(commands.Status())
-	rootCmd.AddCommand(commands.Catalog())
+	rootCmd.AddCommand(commands.List())
+	rootCmd.AddCommand(commands.Store())
 
 	err := rootCmd.Execute()
 
