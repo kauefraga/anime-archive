@@ -14,7 +14,7 @@ func main() {
 	rootCmd := &cobra.Command{
 		Use:     "anime-archive [command] [arguments] [options]",
 		Short:   "🦋 A command line interface to create, find and list all my viewed animes.",
-		Version: "1.1.0",
+		Version: "1.1.1",
 	}
 
 	rootCmd.AddCommand(commands.Status())

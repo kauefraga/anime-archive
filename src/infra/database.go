@@ -4,6 +4,7 @@ Copyright © 2023 Kauê Fraga Rodrigues <kauefragarodrigues456@gmail.com>
 package infra
 
 import (
+	"runtime"
 	"time"
 
 	"gorm.io/driver/sqlite"
@@ -13,7 +14,7 @@ import (
 type Anime struct {
 	gorm.Model
 	Title     string `gorm:"unique;not null"`
-	Url       string
+	Url       string `gorm:"not null"`
 	CreatedAt time.Time
 }
 
@@ -26,7 +27,10 @@ func (Anime) TableName() string {
 }
 
 func InitDatabase() *gorm.DB {
-	database, error := gorm.Open(sqlite.Open("animes.db"), &gorm.Config{})
+	_, caller, _, _ := runtime.Caller(1)
+	path := caller + "/../../../animes.db"
+
+	database, error := gorm.Open(sqlite.Open(path), &gorm.Config{})
 
 	if error != nil {
 		panic("Failed to connect to database.")
