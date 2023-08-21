@@ -34,19 +34,23 @@
 - A fancy UI that is easy to use.
 - Everything looks better with some colors, and i am addicted to it.
 - If you forgot how to use it, just ask for help: `anime-archive --help`.
+- Intuitive commands: `store`, `search`, `list`, `status`.
 
 ## ⬇️ How to install and use it
 
-The application with all basic features that i want isn't ready for release. I will build and release as soon as possible, don't worry.
+1. Install the executable and the database at [releases](https://github.com/kauefraga/anime-archive/releases)
+2. Set the executable directory to your PATH (i.e powershell: `$pwd=pwd; $env:PATH="$env:PATH;$pwd"`)
 
 ## 🦄 Technical Stuff
 
 If you want to learn more about the project and maybe help me to improve it, see the [ONBOARDING](ONBOARDING.md).
 
-## 📋 To Do List
+## 📋 Possible improvements
 
-- Develop all the CRUD operations, as i transcribed: `catalog` (read), `store` (create), `find` (read), `remove` (delete)...
-- Think about a online database, like a Postgres instance at [Render](https://render.com), a MySQL at [Planet Scale](https://planetscale.com) or a simpler solution like [Atlas MongoDb](https://www.mongodb.com/atlas).
+- A `setup` command that saves the database path in a .json. it increases the usage steps but makes the path resolving process much easier.
+- A `export` command that reads all the animes and writes to other file format (json, plain text...).
+- An online database, like a Postgres instance at [Render](https://render.com), a MySQL at [Planet Scale](https://planetscale.com) or a simpler solution like [Atlas MongoDb](https://www.mongodb.com/atlas).
+- Create a rest API that reads the database.
 
 ## 📝 License
 
