@@ -20,6 +20,8 @@ I actually don't know how to write tests for it. 🤡
 
 > I choose [SQLite](https://www.sqlite.org/index.html) because of its power and availability. In fact, i want it to work offline.
 
+You need to have GCC or some C compiler to work with SQLite.
+
 ## 🛠 Technologies
 
 Here is a list of what packages and technologies i am using to build Anime Archive:
