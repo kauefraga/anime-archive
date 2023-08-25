@@ -20,7 +20,7 @@ func List() *cobra.Command {
 		Short:   "Query and show all the registered animes",
 		Example: "anime-archive list",
 		Run: func(command *cobra.Command, arguments []string) {
-			database := infra.InitDatabase()
+			database := infra.ConnectDatabase()
 
 			fmt.Println(ui.Interrogative, "Querying animes...")
 

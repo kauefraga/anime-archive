@@ -41,7 +41,7 @@ func Store() *cobra.Command {
 				CreatedAt: time.Now(),
 			}
 
-			database := infra.InitDatabase()
+			database := infra.ConnectDatabase()
 
 			fmt.Println(ui.Interrogative, "Checking if the anime already exists...")
 
