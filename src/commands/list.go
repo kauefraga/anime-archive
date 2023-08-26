@@ -25,7 +25,7 @@ func List() *cobra.Command {
 			fmt.Println(ui.Interrogative, "Querying animes...")
 
 			var amountOfAnimes int64
-			database.Table("anime").Count(&amountOfAnimes)
+			database.Table("animes").Count(&amountOfAnimes)
 			fmt.Println(ui.Plus, "Animes count:", amountOfAnimes)
 
 			var animes []infra.Anime

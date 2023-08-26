@@ -17,7 +17,7 @@ import (
 func Search() *cobra.Command {
 	search := &cobra.Command{
 		Use:     "search [TITLE]",
-		Short:   "Search for an anime with a title and return it with a url",
+		Short:   "Searches for an anime with a title and return it with a url",
 		Example: "anime-archive search 'Mushoku Tensei'",
 		Args:    cobra.ExactArgs(1),
 		Run: func(command *cobra.Command, arguments []string) {

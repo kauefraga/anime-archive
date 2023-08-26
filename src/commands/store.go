@@ -21,7 +21,7 @@ import (
 func Store() *cobra.Command {
 	store := &cobra.Command{
 		Use:     "store [TITLE] [URL]",
-		Short:   "Store an anime with a given title and URL",
+		Short:   "Stores an anime with a given title and URL",
 		Example: "anime-archive store 'Mushoku Tensei' 'https://example.com/animes/mushoku-tensei'",
 		Args:    cobra.ExactArgs(2),
 		Run: func(command *cobra.Command, arguments []string) {
