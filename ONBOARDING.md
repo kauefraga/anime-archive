@@ -20,7 +20,8 @@ make build
 Anime Archive is using `make` and currently has three scripts:
 
 - `build`: as it says, builds the project.
-- `release`: builds the project with some optimization flags (`-ldflags=-w`).
+- `release`: builds the project with some optimization flags (`-ldflags=-w`) for x64 bits architecture.
+- `release-x86`: builds the project with some optimization flags (`-ldflags=-w`) for x86 bits architecture.
 - `clean`: runs `go clean` and removes the generated binaries.
 
 Perhaps you want to see the [`Makefile`](Makefile).
