@@ -35,7 +35,7 @@
 - Everything looks better with some colors, and i am addicted to it.
 - It uses SQLite, the whole database is a file.
 - If you forgot how to use it, just ask for help: `anime-archive --help`.
-- Intuitive commands: `setup`, `store`, `search`, `list` and `status`.
+- Intuitive commands: `setup`, `store`, `search`, `list`, `export` and `status`.
 
 ## ⬇️ How to install and use it
 
@@ -60,7 +60,6 @@ If you want to learn more about the project and maybe help me to improve it, see
 
 ## 📋 Possible improvements
 
-- A `export` command that reads all the animes and writes to other file format (json, plain text...).
 - Create a rest API that reads the database.
 
 ## 📝 License
