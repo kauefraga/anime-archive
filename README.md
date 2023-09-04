@@ -64,4 +64,4 @@ If you want to learn more about the project and maybe help me to improve it, see
 
 ## 📝 License
 
-This project is licensed under the MIT License - See the [LICENSE](https://github.com/kauefraga/anime-archive/blob/main/LICENSE) for more information.
+This project is licensed under the GPL-v3.0 License - See the [LICENSE](https://github.com/kauefraga/anime-archive/blob/main/LICENSE) for more information.
