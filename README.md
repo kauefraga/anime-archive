@@ -8,22 +8,22 @@
   <p>
     <img
       alt="GitHub top language"
-      src="https://img.shields.io/github/languages/top/kauefraga/anime-archive.svg"
+      src="https://img.shields.io/github/languages/top/kauefraga/anime-archive"
     />
     <img
-      alt="Repository size"
-      src="https://img.shields.io/github/repo-size/kauefraga/anime-archive.svg"
+      alt="GitHub all releases"
+      src="https://img.shields.io/github/downloads/kauefraga/anime-archive/total"
+    />
+    <img
+      alt="GitHub LICENSE"
+      src="https://img.shields.io/github/license/kauefraga/anime-archive"
     />
     <a href="https://github.com/kauefraga/anime-archive/commits/main">
       <img
         alt="GitHub last commit"
-        src="https://img.shields.io/github/last-commit/kauefraga/anime-archive.svg"
+        src="https://img.shields.io/github/last-commit/kauefraga/anime-archive"
       />
     </a>
-    <img
-      alt="GitHub LICENSE"
-      src="https://img.shields.io/github/license/kauefraga/anime-archive.svg"
-    />
   </p>
 </div>
 
@@ -31,16 +31,20 @@
 
 ### Features
 
-- A fancy UI that is easy to use.
-- Everything looks better with some colors, and i am addicted to it.
-- It uses SQLite, the whole database is a file.
-- If you forgot how to use it, just ask for help: `anime-archive --help`.
-- Intuitive commands: `setup`, `store`, `search`, `list`, `export` and `status`.
+Why would you use Anime Archive instead of a notepad? Here's why:
+
+- [x] A simple interface, you will easily figure out how to use it.
+- [x] It's blazingly fast because don't has any server calls. It registers stuff in a file-based database (SQLite).
+- [x] It's also lightweight because of the database choice.
+
+And the most important one, if you are a command line enjoyer, then I probably gotcha :).
+
+Need some help? See [usage section](#🤹‍♂️-usage) or run `anime-archive` or `anime-archive --help`
 
 ## ⬇️ How to install and use it
 
 1. Install the executable at [releases](https://github.com/kauefraga/anime-archive/releases)
-2. As i don't develop a feature to automatically add the application to the PATH, you will need to add it by yourself.
+2. As i don't develop a feature to automatically add the application to the PATH, you will need to add it manually.
 
 ```bash
 # Here is a way to add it to the PATH
@@ -54,14 +58,24 @@ $env:PATH="$env:PATH;$pwd" # One line: $pwd=pwd;$env:PATH="$env:PATH;$pwd"
 export PATH="$PATH:$(pwd)"
 ```
 
+## 🤹‍♂️ Usage
+
+- To setup Anime Archive, use `setup`.
+- To store an anime, use `store "ANIME TITLE" "ANIME URL"`.
+- To search for an anime, use `search "ANIME TITLE"`.
+- To list all the stored animes, use `list`.
+- To list *alternative sites* to watch anime (:brazil:), use `status`.
+- To export the database to a human readable format, use `export [--json or --csv]`.
+
 ## 🦄 Technical Stuff
 
 If you want to learn more about the project and maybe help me to improve it, see the [ONBOARDING](ONBOARDING.md).
 
 ## 📋 Possible improvements
 
+- `list`: add flag functions like tail and head that queries only a specified number of rows
 - Create a rest API that reads the database.
 
 ## 📝 License
 
-This project is licensed under the GPL-v3.0 License - See the [LICENSE](https://github.com/kauefraga/anime-archive/blob/main/LICENSE) for more information.
+This project is licensed under the GPL-3.0 License - See the [LICENSE](https://github.com/kauefraga/anime-archive/blob/main/LICENSE) for more information.
