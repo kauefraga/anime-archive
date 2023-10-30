@@ -39,7 +39,7 @@ Why would you use Anime Archive instead of a notepad? Here's why:
 
 And the most important one, if you are a command line enjoyer, then I probably gotcha :).
 
-Need some help? See [usage section](#🤹‍♂️-usage) or run `anime-archive` or `anime-archive --help`
+Need some help? See usage section or run `anime-archive` or `anime-archive --help`
 
 ## ⬇️ How to install and use it
 
