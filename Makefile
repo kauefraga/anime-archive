@@ -5,11 +5,13 @@ BINARY_NAME=anime-archive
 LINUX_SUFIX=linux # .bin
 DARWIN_SUFIX=darwin
 
-# Build without optimizations
-build:
-	GOARCH=amd64 GOOS=darwin go build -o ${BINARY_FOLDER}/${BINARY_NAME}-${DARWIN_SUFIX} ./src/main.go
-	GOARCH=amd64 GOOS=linux go build -o ${BINARY_FOLDER}/${BINARY_NAME}-${LINUX_SUFIX} ./src/main.go
-	GOARCH=amd64 GOOS=windows go build -o ${BINARY_FOLDER}/${BINARY_NAME}.exe ./src/main.go
+
+install:
+	go get github.com/adrg/xdg
+	go get github.com/spf13/cobra
+	go get github.com/jedib0t/go-pretty/v6
+	go get gorm.io/driver/sqlite
+	go get -u gorm.io/gorm
 
 # Build with optimizations (-ldflags=-w)
 release:
@@ -21,9 +23,3 @@ release:
 release-x86:
 	GOARCH=386 GOOS=linux go build -ldflags=-w -o ${BINARY_FOLDER}/${BINARY_NAME}-${LINUX_SUFIX}-x86 ./src/main.go
 	GOARCH=386 GOOS=windows go build -ldflags=-w -o ${BINARY_FOLDER}/${BINARY_NAME}-x86.exe ./src/main.go
-
-clean:
-	go clean
-	rm ./${BINARY_FOLDER}/${BINARY_NAME}-darwin
-	rm ./${BINARY_FOLDER}/${BINARY_NAME}-linux
-	rm ./${BINARY_FOLDER}/${BINARY_NAME}.exe
