@@ -34,7 +34,7 @@
 Why would you use Anime Archive instead of a notepad? Here's why:
 
 - [x] A simple interface, you will easily figure out how to use it.
-- [x] It's blazingly fast because don't has any server calls. It registers stuff in a file-based database (SQLite).
+- [x] It's blazingly fast because doesn't have any server calls. It registers stuff in a file-based database (SQLite).
 - [x] It's also lightweight because of the database choice.
 
 And the most important one, if you are a command line enjoyer, then I probably gotcha :).
@@ -63,7 +63,7 @@ export PATH="$PATH:$(pwd)"
 - To setup Anime Archive, use `setup`.
 - To store an anime, use `store "ANIME TITLE" "ANIME URL"`.
 - To search for an anime, use `search "ANIME TITLE"`.
-- To list all the stored animes, use `list`.
+- To list all the stored animes, use `list [--tail Int or --head Int]`.
 - To list *alternative sites* to watch anime (:brazil:), use `status`.
 - To export the database to a human readable format, use `export [--json or --csv]`.
 
@@ -72,9 +72,6 @@ export PATH="$PATH:$(pwd)"
 If you want to learn more about the project and maybe help me to improve it, see the [ONBOARDING](ONBOARDING.md).
 
 ## 📋 Possible improvements
-
-- `list`: add flag functions like tail and head that queries only a specified number of rows
-- Create a rest API that reads the database.
 
 ## 📝 License
 
