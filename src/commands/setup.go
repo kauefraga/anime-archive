@@ -61,7 +61,8 @@ func Setup() *cobra.Command {
 				panic(err)
 			}
 
-			fmt.Println(text.FgGreen.Sprint("Done! The database file is located at:", databasePath))
+			fmt.Println(text.FgGreen.Sprint("Done! The database file is located at: ", databasePath))
+			fmt.Println("Don't forget to add the Anime Archive binary in the PATH so you can call it anywhere >:)")
 
 			fmt.Println(ui.Interrogative, "Querying 10 animes in the database...")
 
