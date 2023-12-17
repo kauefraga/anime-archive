@@ -16,6 +16,8 @@ import (
 )
 
 func Setup() *cobra.Command {
+	var useRemoteDatabase bool
+
 	setup := &cobra.Command{
 		Use:     "setup",
 		Short:   "Creates the database and downloads the 'animes.db' from the project's repository. Run only once per installation.",
@@ -35,45 +37,57 @@ func Setup() *cobra.Command {
 
 			database, databasePath := infra.InitDatabase()
 
-			databaseFile, err := os.OpenFile(databasePath, os.O_RDWR, 0666)
+			if useRemoteDatabase {
+				databaseFile, err := os.OpenFile(databasePath, os.O_RDWR, 0666)
 
-			if err != nil {
-				panic("Failed to open the database file.")
-			}
+				if err != nil {
+					panic("Failed to open the database file.")
+				}
 
-			defer databaseFile.Close()
+				defer databaseFile.Close()
 
-			fmt.Println(text.FgGreen.Sprint("Downloading the anime archive's database..."))
+				fmt.Println(text.FgGreen.Sprint("Downloading the anime archive's database..."))
 
-			response, err := http.Get("https://github.com/kauefraga/anime-archive/raw/main/animes.db")
+				response, err := http.Get("https://github.com/kauefraga/anime-archive/raw/main/animes.db")
 
-			if err != nil {
-				panic("Failed to download the database from GitHub repository.")
-			}
+				if err != nil {
+					panic("Failed to download the database from GitHub repository.")
+				}
 
-			defer response.Body.Close()
+				defer response.Body.Close()
 
-			fmt.Println(text.FgGreen.Sprint("Copying the downloaded database to the database file..."))
+				fmt.Println(text.FgGreen.Sprint("Copying the downloaded database to the database file..."))
 
-			_, err = io.Copy(databaseFile, response.Body)
+				_, err = io.Copy(databaseFile, response.Body)
 
-			if err != nil {
-				panic(err)
+				if err != nil {
+					panic(err)
+				}
+
+				fmt.Println(ui.Interrogative, "Querying 10 animes in the database...")
+
+				var animes []infra.Anime
+				database.Select("id", "title").Where("id > 100").Limit(10).Find(&animes)
+
+				for _, anime := range animes {
+					fmt.Println(ui.Plus, anime.Title)
+				}
+
+				fmt.Println("-----")
 			}
 
 			fmt.Println(text.FgGreen.Sprint("Done! The database file is located at: ", databasePath))
 			fmt.Println("Don't forget to add the Anime Archive binary in the PATH so you can call it anywhere >:)")
-
-			fmt.Println(ui.Interrogative, "Querying 10 animes in the database...")
-
-			var animes []infra.Anime
-			database.Select("id", "title").Where("id > 100").Limit(10).Find(&animes)
-
-			for _, anime := range animes {
-				fmt.Println(ui.Plus, anime.Title)
-			}
 		},
 	}
+
+	setup.Flags().BoolVarP(
+		&useRemoteDatabase,
+		"useRemoteDatabase",
+		"u",
+		false,
+		"Install Anime Archive's database (https://github.com/kauefraga/anime-archive/raw/main/animes.db)",
+	)
 
 	return setup
 }
