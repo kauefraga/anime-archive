@@ -21,7 +21,7 @@ func Setup() *cobra.Command {
 		Short:   "Creates the database and downloads the 'animes.db' from the project's repository. Run only once per installation.",
 		Example: "anime-archive setup",
 		Run: func(command *cobra.Command, arguments []string) {
-			if infra.HasDatabaseAlready() {
+			if _, err := infra.SearchDatabase(); err != nil {
 				fmt.Println(
 					ui.Minus,
 					text.FgRed.Sprint("The database already exists. You mustn't run it twice."),
