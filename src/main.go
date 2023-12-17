@@ -12,7 +12,7 @@ import (
 
 func main() {
 	rootCmd := &cobra.Command{
-		Use:     "anime-archive [command] [arguments] [options]",
+		Use:     "anime-archive",
 		Short:   "🦋 A command line interface to create, find and list all my viewed animes.",
 		Version: "1.5.0",
 	}
