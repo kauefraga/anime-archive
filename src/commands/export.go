@@ -19,8 +19,8 @@ func Export() *cobra.Command {
 	var csvFormat bool
 
 	export := &cobra.Command{
-		Use:     "export [options]",
-		Short:   "Exports the database in a choosen file format",
+		Use:     "export",
+		Short:   "Exports the database in a choosen file format (default: plain text)",
 		Example: "anime-archive export",
 		Run: func(command *cobra.Command, arguments []string) {
 			fmt.Println(ui.Interrogative, "Querying animes...")
