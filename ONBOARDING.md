@@ -6,23 +6,15 @@
 
 To build Anime Archive you must have: Golang (>=1.20) and GCC.
 
+Currently, i am building for (x64):
+
+- Darwin
+- Linux
+- Windows
+
 ```bash
-# Build for a specific platform
-# See: https://www.digitalocean.com/community/tutorials/building-go-applications-for-different-operating-systems-and-architectures
-GOARCH={architecture} GOOS={platform} go build -o {outputfile} ./src/main.go
-
-# Default build
-make build
+make release
 ```
-
-## 🔨 Scripts
-
-Anime Archive is using `make` and currently has three scripts:
-
-- `build`: as it says, builds the project.
-- `release`: builds the project with some optimization flags (`-ldflags=-w`) for x64 bits architecture.
-- `release-x86`: builds the project with some optimization flags (`-ldflags=-w`) for x86 bits architecture.
-- `clean`: runs `go clean` and removes the generated binaries.
 
 Perhaps you want to see the [`Makefile`](Makefile).
 
