@@ -32,6 +32,14 @@ func List() *cobra.Command {
 
 			var amountOfAnimes int64
 			database.Table("animes").Count(&amountOfAnimes)
+
+			if amountOfAnimes == 0 {
+				fmt.Println(ui.Minus, "There is no anime registered.")
+				fmt.Println(ui.Plus, "Here is a list of my favorite ones:")
+				ui.ShowRecommendations()
+				os.Exit(0)
+			}
+
 			fmt.Println(ui.Plus, "Animes count:", amountOfAnimes)
 
 			var animes []infra.Anime
