@@ -1,6 +1,3 @@
-/*
-Copyright © 2023 Kauê Fraga Rodrigues <kauefragarodrigues456@gmail.com>
-*/
 package lib
 
 import "regexp"

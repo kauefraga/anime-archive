@@ -1,6 +1,3 @@
-/*
-Copyright © 2023 Kauê Fraga Rodrigues <kauefragarodrigues456@gmail.com>
-*/
 package main
 
 import (
@@ -14,6 +11,7 @@ func main() {
 	rootCmd := &cobra.Command{
 		Use:     "anime-archive",
 		Short:   "🦋 A command line interface to create, find and list all my viewed animes.",
+		Long:    "🦋 A command line interface to create, find and list all my viewed animes.\nCopyright © 2023 Kauê Fraga Rodrigues <kauefragarodrigues456@gmail.com>",
 		Version: "1.6.0",
 	}
 
