@@ -23,12 +23,10 @@ func List() *cobra.Command {
 				os.Exit(1)
 			}
 
-			database := db.ConnectDatabase()
-
 			fmt.Println(ui.Interrogative, "Querying animes...")
 
 			var amountOfAnimes int64
-			database.Table("animes").Count(&amountOfAnimes)
+			db.Client.Table("animes").Count(&amountOfAnimes)
 
 			if amountOfAnimes == 0 {
 				fmt.Println(ui.Minus, "There is no anime registered.")
@@ -42,15 +40,15 @@ func List() *cobra.Command {
 			var animes []db.Anime
 
 			if head > 0 {
-				database.Select(
+				db.Client.Select(
 					"title", "created_at",
 				).Order("id DESC").Limit(int(head)).Find(&animes)
 			} else if tail > 0 {
-				database.Select(
+				db.Client.Select(
 					"title", "created_at",
 				).Limit(int(tail)).Find(&animes)
 			} else {
-				database.Select(
+				db.Client.Select(
 					"title", "created_at",
 				).Order("created_at DESC").Find(&animes)
 			}

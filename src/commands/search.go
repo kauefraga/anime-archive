@@ -25,10 +25,8 @@ func Search() *cobra.Command {
 
 			fmt.Println(ui.Interrogative, "Searching...")
 
-			database := db.ConnectDatabase()
-
 			var anime db.Anime
-			database.Where("title LIKE ?", "%"+arguments[0]+"%").First(&anime)
+			db.Client.Where("title LIKE ?", "%"+arguments[0]+"%").First(&anime)
 
 			fmt.Println(text.FgGreen.Sprint("Found!"))
 			fmt.Println(ui.Plus, "Title:", anime.Title)

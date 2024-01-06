@@ -22,14 +22,12 @@ func Export() *cobra.Command {
 		Run: func(command *cobra.Command, arguments []string) {
 			fmt.Println(ui.Interrogative, "Querying animes...")
 
-			database := db.ConnectDatabase()
-
 			var amountOfAnimes int64
-			database.Table("animes").Count(&amountOfAnimes)
+			db.Client.Table("animes").Count(&amountOfAnimes)
 			fmt.Println(ui.Plus, "Currently, the database has", amountOfAnimes, "animes.")
 
 			var animes []db.Anime
-			database.Order("ID ASC").Find(&animes)
+			db.Client.Order("ID ASC").Find(&animes)
 
 			if jsonFormat {
 				fmt.Println(ui.Interrogative, "Converting to JSON...")
