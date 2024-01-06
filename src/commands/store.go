@@ -27,7 +27,7 @@ func Store() *cobra.Command {
 				os.Exit(1)
 			}
 
-			if lib.IsUrlNotValid(arguments[1]) {
+			if lib.IsUrlInvalid(arguments[1]) {
 				fmt.Println(ui.Minus, text.FgRed.Sprint("The URL is not valid."))
 				os.Exit(1)
 			}
