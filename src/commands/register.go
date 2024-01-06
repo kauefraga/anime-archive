@@ -15,9 +15,9 @@ import (
 
 func Register() *cobra.Command {
 	register := &cobra.Command{
-		Use:     "store [TITLE] [URL]",
-		Short:   "Stores an anime with a given title and URL",
-		Example: "anime-archive store 'Mushoku Tensei' 'https://example.com/animes/mushoku-tensei'",
+		Use:     "register TITLE URL",
+		Short:   "Registers an anime with a given title and URL",
+		Example: "anime-archive register 'Mushoku Tensei' 'https://example.com/animes/mushoku-tensei'",
 		Args:    cobra.ExactArgs(2),
 		Run: func(command *cobra.Command, arguments []string) {
 			if strings.TrimSpace(arguments[0]) == "" {
