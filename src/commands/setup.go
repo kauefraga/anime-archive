@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/kauefraga/anime-archive/src/infra"
+	db "github.com/kauefraga/anime-archive/src/database"
 	"github.com/kauefraga/anime-archive/src/ui"
 	"github.com/spf13/cobra"
 )
@@ -20,7 +20,7 @@ func Setup() *cobra.Command {
 		Short:   "Creates the database and downloads the 'animes.db' from the project's repository. Run only once per installation.",
 		Example: "anime-archive setup",
 		Run: func(command *cobra.Command, arguments []string) {
-			if _, err := infra.SearchDatabase(); err == nil {
+			if _, err := db.SearchDatabase(); err == nil {
 				fmt.Println(
 					ui.Minus,
 					text.FgRed.Sprint("The database already exists. You mustn't run it twice."),
@@ -32,7 +32,7 @@ func Setup() *cobra.Command {
 
 			fmt.Println(text.FgGreen.Sprint("Creating the database..."))
 
-			database, databasePath := infra.InitDatabase()
+			database, databasePath := db.InitDatabase()
 
 			if useRemoteDatabase {
 				databaseFile, err := os.OpenFile(databasePath, os.O_RDWR, 0666)
@@ -63,7 +63,7 @@ func Setup() *cobra.Command {
 
 				fmt.Println(ui.Interrogative, "Querying 10 animes in the database...")
 
-				var animes []infra.Anime
+				var animes []db.Anime
 				database.Select("id", "title").Where("id > 100").Limit(10).Find(&animes)
 
 				for _, anime := range animes {

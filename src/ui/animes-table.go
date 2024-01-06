@@ -6,10 +6,10 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/kauefraga/anime-archive/src/infra"
+	db "github.com/kauefraga/anime-archive/src/database"
 )
 
-func ShowAnimesTable(animes []infra.Anime) {
+func ShowAnimesTable(animes []db.Anime) {
 	t := table.NewWriter()
 	t.SetOutputMirror(os.Stdout)
 	t.AppendHeader(table.Row{

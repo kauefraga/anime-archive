@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/kauefraga/anime-archive/src/infra"
+	db "github.com/kauefraga/anime-archive/src/database"
 	"github.com/kauefraga/anime-archive/src/lib"
 	"github.com/kauefraga/anime-archive/src/ui"
 	"github.com/spf13/cobra"
@@ -32,19 +32,19 @@ func Store() *cobra.Command {
 				os.Exit(1)
 			}
 
-			anime := infra.Anime{
+			anime := db.Anime{
 				Title:     arguments[0],
 				Url:       arguments[1],
 				CreatedAt: time.Now(),
 			}
 
-			database := infra.ConnectDatabase()
+			database := db.ConnectDatabase()
 
 			fmt.Println(ui.Interrogative, "Checking if the anime already exists...")
 
-			var alreadyExists infra.Anime
+			var alreadyExists db.Anime
 			result := database.Where(
-				&infra.Anime{Title: anime.Title},
+				&db.Anime{Title: anime.Title},
 			).First(&alreadyExists)
 
 			// If Gorm throw "record not found", create the anime

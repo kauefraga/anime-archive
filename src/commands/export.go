@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/kauefraga/anime-archive/src/infra"
+	db "github.com/kauefraga/anime-archive/src/database"
 	"github.com/kauefraga/anime-archive/src/ui"
 	"github.com/spf13/cobra"
 )
@@ -22,13 +22,13 @@ func Export() *cobra.Command {
 		Run: func(command *cobra.Command, arguments []string) {
 			fmt.Println(ui.Interrogative, "Querying animes...")
 
-			database := infra.ConnectDatabase()
+			database := db.ConnectDatabase()
 
 			var amountOfAnimes int64
 			database.Table("animes").Count(&amountOfAnimes)
 			fmt.Println(ui.Plus, "Currently, the database has", amountOfAnimes, "animes.")
 
-			var animes []infra.Anime
+			var animes []db.Anime
 			database.Order("ID ASC").Find(&animes)
 
 			if jsonFormat {

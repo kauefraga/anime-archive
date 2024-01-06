@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kauefraga/anime-archive/src/infra"
+	db "github.com/kauefraga/anime-archive/src/database"
 	"github.com/kauefraga/anime-archive/src/ui"
 	"github.com/spf13/cobra"
 )
@@ -23,7 +23,7 @@ func List() *cobra.Command {
 				os.Exit(1)
 			}
 
-			database := infra.ConnectDatabase()
+			database := db.ConnectDatabase()
 
 			fmt.Println(ui.Interrogative, "Querying animes...")
 
@@ -39,7 +39,7 @@ func List() *cobra.Command {
 
 			fmt.Println(ui.Plus, "Animes count:", amountOfAnimes)
 
-			var animes []infra.Anime
+			var animes []db.Anime
 
 			if head > 0 {
 				database.Select(

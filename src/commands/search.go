@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/kauefraga/anime-archive/src/infra"
+	db "github.com/kauefraga/anime-archive/src/database"
 	"github.com/kauefraga/anime-archive/src/ui"
 	"github.com/spf13/cobra"
 )
@@ -25,9 +25,9 @@ func Search() *cobra.Command {
 
 			fmt.Println(ui.Interrogative, "Searching...")
 
-			database := infra.ConnectDatabase()
+			database := db.ConnectDatabase()
 
-			var anime infra.Anime
+			var anime db.Anime
 			database.Where("title LIKE ?", "%"+arguments[0]+"%").First(&anime)
 
 			fmt.Println(text.FgGreen.Sprint("Found!"))
