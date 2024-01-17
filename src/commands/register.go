@@ -23,7 +23,7 @@ func Register() *cobra.Command {
 			if strings.TrimSpace(arguments[0]) == "" {
 				fmt.Println(
 					ui.Minus,
-					text.FgRed.Sprint("You need to write the title of the anime first."),
+					text.FgRed.Sprint("Anime's title is empty. Try to write the anime title first."),
 				)
 				os.Exit(1)
 			}
@@ -31,7 +31,7 @@ func Register() *cobra.Command {
 			if lib.IsUrlInvalid(arguments[1]) {
 				fmt.Println(
 					ui.Minus,
-					text.FgRed.Sprint("The URL is not valid."),
+					text.FgRed.Sprint("The URL is invalid."),
 				)
 				os.Exit(1)
 			}
