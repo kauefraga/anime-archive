@@ -24,7 +24,10 @@ func Export() *cobra.Command {
 
 			var amountOfAnimes int64
 			db.Client.Table("animes").Count(&amountOfAnimes)
-			fmt.Println(ui.Plus, "Currently, the database has", amountOfAnimes, "animes.")
+			fmt.Println(
+				ui.Plus,
+				"Currently, the database has", amountOfAnimes, "animes.",
+			)
 
 			var animes []db.Anime
 			db.Client.Order("ID ASC").Find(&animes)
@@ -64,10 +67,18 @@ func Export() *cobra.Command {
 
 				defer csvFile.Close()
 
-				fmt.Fprintf(csvFile, "Id;Title;Url;Created At\n")
+				fmt.Fprintf(csvFile, "Id;Title;Description;Url;Created At\n")
 
 				for _, anime := range animes {
-					fmt.Fprintf(csvFile, "%d;%s;%s;%s\n", anime.ID, anime.Title, anime.Url, anime.CreatedAt)
+					fmt.Fprintf(
+						csvFile,
+						"%d;%s;%s;%s;%s\n",
+						anime.ID,
+						anime.Title,
+						anime.Description,
+						anime.Url,
+						anime.CreatedAt,
+					)
 				}
 
 				fmt.Println(text.FgGreen.Sprint("Done! The file 'animes.csv' was created."))
@@ -84,7 +95,15 @@ func Export() *cobra.Command {
 			defer plainText.Close()
 
 			for _, anime := range animes {
-				fmt.Fprintf(plainText, "[%d] %s %s - %s\n", anime.ID, anime.Title, anime.Url, anime.CreatedAt)
+				fmt.Fprintf(
+					plainText,
+					"[%d] %s (%s) %s - %s\n",
+					anime.ID,
+					anime.Description,
+					anime.Title,
+					anime.Url,
+					anime.CreatedAt,
+				)
 			}
 
 			fmt.Println(text.FgGreen.Sprint("Done! The file 'animes.txt' was created."))
