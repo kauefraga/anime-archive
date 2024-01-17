@@ -58,16 +58,17 @@ export PATH="$PATH:$(pwd)"
 ## 🤹‍♂️ Usage
 
 - To setup Anime Archive, use `setup [--useRemoteDatabase]`.
-  - `--useRemoteDatabase (-u)` installs [my personal anime list](https://github.com/kauefraga/anime-archive/blob/main/animes.db).
-- To store an anime, use `store "ANIME TITLE" "ANIME URL"`.
+  - `--useRemoteDatabase (-u)` install [my personal anime list](https://github.com/kauefraga/anime-archive/blob/main/animes.db).
+- To register an anime, use `register "ANIME TITLE" "ANIME URL"`.
+  - `--description (-d) string` assign an description about the anime.
 - To search for an anime, use `search "ANIME TITLE"`.
 - To list all the stored animes, use `list [--tail uint or --head uint]`.
-  - `--head (-H) uint` queries some of the newest records.
-  - `--tail (-T) uint` queries some of the oldest records.
+  - `--head (-H) uint` query some of the newest records.
+  - `--tail (-T) uint` query some of the oldest records.
 - To list *alternative sites* to watch anime (:brazil:), use `status`.
 - To export the database to a human readable format, use `export [--json or --csv]`.
-  - `--json (-j)` exports the database in JSON format.
-  - `--csv (-c)` exports the database in CSV format.
+  - `--json (-j)` export the database in JSON format.
+  - `--csv (-c)` export the database in CSV format.
 
 ## 🦄 Technical Stuff
 
