@@ -14,6 +14,8 @@ import (
 )
 
 func Register() *cobra.Command {
+	var description string
+
 	register := &cobra.Command{
 		Use:     "register TITLE URL",
 		Short:   "Registers an anime with a given title and URL",
@@ -42,6 +44,10 @@ func Register() *cobra.Command {
 				CreatedAt: time.Now(),
 			}
 
+			if len(description) > 0 {
+				anime.Description = description
+			}
+
 			fmt.Println(
 				ui.Interrogative,
 				"Creating anime registry...",
@@ -53,8 +59,11 @@ func Register() *cobra.Command {
 			)
 			fmt.Println(
 				ui.Plus,
-				"Url:",
-				anime.Url,
+				"Description:", anime.Description,
+			)
+			fmt.Println(
+				ui.Plus,
+				"Url:", anime.Url,
 			)
 
 			db.Client.Where("title = ?", anime.Title).FirstOrCreate(&anime)
@@ -67,6 +76,8 @@ func Register() *cobra.Command {
 			))
 		},
 	}
+
+	register.Flags().StringVarP(&description, "description", "d", "", "Assign an description about the anime")
 
 	return register
 }
