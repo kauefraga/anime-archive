@@ -1,7 +1,6 @@
 package db
 
 import (
-	"database/sql"
 	"time"
 
 	"github.com/adrg/xdg"
@@ -13,7 +12,7 @@ type Anime struct {
 	ID          uint   `gorm:"primarykey"`
 	Title       string `gorm:"unique;not null"`
 	Url         string `gorm:"not null"`
-	Description sql.NullString
+	Description string
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 }
