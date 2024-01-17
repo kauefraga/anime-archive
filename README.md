@@ -62,6 +62,8 @@ export PATH="$PATH:$(pwd)"
 - To register an anime, use `register "ANIME TITLE" "ANIME URL"`.
   - `--description (-d) string` assign an description about the anime.
 - To search for an anime, use `search "ANIME TITLE"`.
+- To update an anime detail, use `update "ANIME TITLE"`.
+  - `--description (-d) string` update the anime's description.
 - To list all the stored animes, use `list [--tail uint or --head uint]`.
   - `--head (-H) uint` query some of the newest records.
   - `--tail (-T) uint` query some of the oldest records.
