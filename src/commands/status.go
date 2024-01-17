@@ -9,14 +9,15 @@ import (
 )
 
 func Status() *cobra.Command {
-	sites := [5]string{
-		"https://animesgratis.org",
+	sites := [7]string{
+    "https://animesonline.nz",
 		"https://animestc.net",
 		"https://animeszone.net",
 		"https://www.anroll.net",
 		"https://animeshouse.net",
-		//"https://betteranime.net",
-		//"https://puray.moe",
+	  "https://animesbr.cc",
+    "https://animesonline.cloud",
+    //"https://betteranime.net",
 		//"https://animesonline.cc",
 	}
 
