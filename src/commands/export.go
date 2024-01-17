@@ -99,8 +99,8 @@ func Export() *cobra.Command {
 					plainText,
 					"[%d] %s (%s) %s - %s\n",
 					anime.ID,
-					anime.Description,
 					anime.Title,
+					anime.Description,
 					anime.Url,
 					anime.CreatedAt,
 				)
