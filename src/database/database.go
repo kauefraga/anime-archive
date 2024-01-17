@@ -1,6 +1,7 @@
 package db
 
 import (
+	"database/sql"
 	"time"
 
 	"github.com/adrg/xdg"
@@ -9,10 +10,12 @@ import (
 )
 
 type Anime struct {
-	gorm.Model
-	Title     string `gorm:"unique;not null"`
-	Url       string `gorm:"not null"`
-	CreatedAt time.Time
+	ID          uint   `gorm:"primarykey"`
+	Title       string `gorm:"unique;not null"`
+	Url         string `gorm:"not null"`
+	Description sql.NullString
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
 }
 
 var Client *gorm.DB
