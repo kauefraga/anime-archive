@@ -110,8 +110,8 @@ func Export() *cobra.Command {
 		},
 	}
 
-	export.Flags().BoolVarP(&jsonFormat, "json", "j", false, "Exports the database in JSON format")
-	export.Flags().BoolVarP(&csvFormat, "csv", "c", false, "Exports the database in CSV format")
+	export.Flags().BoolVarP(&jsonFormat, "json", "j", false, "Export the database in JSON format")
+	export.Flags().BoolVarP(&csvFormat, "csv", "c", false, "Export the database in CSV format")
 
 	return export
 }
