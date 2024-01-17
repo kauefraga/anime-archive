@@ -13,13 +13,16 @@ import (
 
 func Search() *cobra.Command {
 	search := &cobra.Command{
-		Use:     "search [TITLE]",
+		Use:     "search TITLE",
 		Short:   "Searches for an anime with a title and return it with a url",
 		Example: "anime-archive search 'Mushoku Tensei'",
 		Args:    cobra.ExactArgs(1),
 		Run: func(command *cobra.Command, arguments []string) {
 			if strings.TrimSpace(arguments[0]) == "" {
-				fmt.Println(ui.Minus, text.FgRed.Sprint("You need to write a title."))
+				fmt.Println(
+					ui.Minus,
+					text.FgRed.Sprint("Anime's title is empty. Try to write an anime title."),
+				)
 				os.Exit(1)
 			}
 
@@ -30,6 +33,7 @@ func Search() *cobra.Command {
 
 			fmt.Println(text.FgGreen.Sprint("Found!"))
 			fmt.Println(ui.Plus, "Title:", anime.Title)
+			fmt.Println(ui.Plus, "Description:", anime.Description)
 			fmt.Println(ui.Plus, "Url:", anime.Url)
 		},
 	}
