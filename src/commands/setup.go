@@ -17,7 +17,7 @@ func Setup() *cobra.Command {
 
 	setup := &cobra.Command{
 		Use:     "setup",
-		Short:   "Creates the database and downloads the 'animes.db' from the project's repository. Run only once per installation.",
+		Short:   "Creates the database and downloads the 'animes.db' from the project's repository. Run only once per installation",
 		Example: "anime-archive setup",
 		Run: func(command *cobra.Command, arguments []string) {
 			if _, err := db.SearchDatabase(); err == nil {
