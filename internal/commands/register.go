@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/jedib0t/go-pretty/v6/text"
-	db "github.com/kauefraga/anime-archive/src/database"
-	"github.com/kauefraga/anime-archive/src/lib"
-	"github.com/kauefraga/anime-archive/src/ui"
+	db "github.com/kauefraga/anime-archive/internal/database"
+	"github.com/kauefraga/anime-archive/internal/lib"
+	"github.com/kauefraga/anime-archive/internal/ui"
 	"github.com/spf13/cobra"
 )
 

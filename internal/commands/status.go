@@ -4,20 +4,20 @@ import (
 	"fmt"
 
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/kauefraga/anime-archive/src/ui"
+	"github.com/kauefraga/anime-archive/internal/ui"
 	"github.com/spf13/cobra"
 )
 
 func Status() *cobra.Command {
 	sites := [7]string{
-    "https://animesonline.nz",
+		"https://animesonline.nz",
 		"https://animestc.net",
 		"https://animeszone.net",
 		"https://www.anroll.net",
 		"https://animeshouse.net",
-	  "https://animesbr.cc",
-    "https://animesonline.cloud",
-    //"https://betteranime.net",
+		"https://animesbr.cc",
+		"https://animesonline.cloud",
+		//"https://betteranime.net",
 		//"https://animesonline.cc",
 	}
 

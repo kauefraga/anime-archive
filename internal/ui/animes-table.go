@@ -6,7 +6,7 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
-	db "github.com/kauefraga/anime-archive/src/database"
+	db "github.com/kauefraga/anime-archive/internal/database"
 )
 
 func ShowAnimesTable(animes []db.Anime) {

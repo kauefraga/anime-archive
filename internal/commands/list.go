@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	db "github.com/kauefraga/anime-archive/src/database"
-	"github.com/kauefraga/anime-archive/src/ui"
+	db "github.com/kauefraga/anime-archive/internal/database"
+	"github.com/kauefraga/anime-archive/internal/ui"
 	"github.com/spf13/cobra"
 )
 

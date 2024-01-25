@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/kauefraga/anime-archive/src/commands"
-	db "github.com/kauefraga/anime-archive/src/database"
+	"github.com/kauefraga/anime-archive/internal/commands"
+	db "github.com/kauefraga/anime-archive/internal/database"
 	"github.com/spf13/cobra"
 )
 
