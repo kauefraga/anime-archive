@@ -17,13 +17,15 @@ type Anime struct {
 	UpdatedAt   time.Time
 }
 
-var Client *gorm.DB
+func SearchDatabase() (string, error) {
+	return xdg.SearchDataFile(".anime-archive/animes.db")
+}
 
-func Init() {
-	databasePath, err := SearchDatabase()
+func Connect() *gorm.DB {
+	databasePath, err := xdg.DataFile(".anime-archive/animes.db")
 
 	if err != nil {
-		panic("Failed to find the database file.")
+		panic(err)
 	}
 
 	database, err := gorm.Open(
@@ -35,7 +37,11 @@ func Init() {
 		panic("Failed to connect to database.")
 	}
 
-	Client = database
+	if !database.Migrator().HasTable(&Anime{}) {
+		database.AutoMigrate(&Anime{})
+	}
+
+	return database
 }
 
 // Use when creating database for the first time, see the command `setup.go`
@@ -58,8 +64,4 @@ func InitDatabase() (*gorm.DB, string) {
 	database.AutoMigrate(&Anime{})
 
 	return database, databasePath
-}
-
-func SearchDatabase() (string, error) {
-	return xdg.SearchDataFile(".anime-archive/animes.db")
 }

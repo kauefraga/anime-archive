@@ -66,7 +66,8 @@ func Register() *cobra.Command {
 				"Url:", anime.Url,
 			)
 
-			db.Client.Where("title = ?", anime.Title).FirstOrCreate(&anime)
+			client := db.Connect()
+			client.Where("title = ?", anime.Title).FirstOrCreate(&anime)
 
 			fmt.Println(text.FgGreen.Sprint("Done!"))
 			fmt.Println(text.FgGreen.Sprint(

@@ -4,13 +4,10 @@ import (
 	"os"
 
 	"github.com/kauefraga/anime-archive/internal/commands"
-	db "github.com/kauefraga/anime-archive/internal/database"
 	"github.com/spf13/cobra"
 )
 
 func main() {
-	db.Init()
-
 	rootCmd := &cobra.Command{
 		Use:     "anime-archive",
 		Short:   "🦋 A command line interface to create, find and list all my viewed animes.",

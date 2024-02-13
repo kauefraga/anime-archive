@@ -29,13 +29,14 @@ func Update() *cobra.Command {
 			}
 
 			var anime db.Anime
-			db.Client.Where("title LIKE ?", "%"+arguments[0]+"%").First(&anime)
+			client := db.Connect()
+			client.Where("title LIKE ?", "%"+arguments[0]+"%").First(&anime)
 
 			if len(description) > 0 {
 				anime.Description = description
 			}
 
-			db.Client.Save(&anime)
+			client.Save(&anime)
 
 			fmt.Println(text.FgGreen.Sprint("Updated!"))
 			fmt.Println(ui.Plus, "Title:", anime.Title)
