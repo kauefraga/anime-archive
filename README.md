@@ -57,8 +57,6 @@ export PATH="$PATH:$(pwd)"
 
 ## 🤹‍♂️ Usage
 
-- To setup Anime Archive, use `setup [--useRemoteDatabase]`.
-  - `--useRemoteDatabase (-u)` install [my personal anime list](https://github.com/kauefraga/anime-archive/blob/main/animes.db).
 - To register an anime, use `register "ANIME TITLE" "ANIME URL"`.
   - `--description (-d) string` assign an description about the anime.
 - To search for an anime, use `search "ANIME TITLE"`.

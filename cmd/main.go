@@ -12,10 +12,9 @@ func main() {
 		Use:     "anime-archive",
 		Short:   "🦋 A command line interface to create, find and list all my viewed animes.",
 		Long:    "🦋 A command line interface to create, find and list all my viewed animes.\nCopyright © 2023 Kauê Fraga Rodrigues <kauefragarodrigues456@gmail.com>",
-		Version: "1.7.0",
+		Version: "1.8.0",
 	}
 
-	rootCmd.AddCommand(commands.Setup())
 	rootCmd.AddCommand(commands.Status())
 	rootCmd.AddCommand(commands.List())
 	rootCmd.AddCommand(commands.Register())
