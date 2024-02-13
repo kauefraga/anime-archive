@@ -13,16 +13,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func Register() *cobra.Command {
+func Add() *cobra.Command {
 	var description string
 
-	register := &cobra.Command{
-		Use:     "register TITLE URL",
-		Short:   "Registers an anime with a given title and URL",
+	add := &cobra.Command{
+		Use:     "add TITLE URL",
+		Short:   "Add an anime with a given title and URL",
 		Example: "anime-archive register 'Mushoku Tensei' 'https://example.com/animes/mushoku-tensei'",
 		Args:    cobra.ExactArgs(2),
-		Run: func(command *cobra.Command, arguments []string) {
-			if strings.TrimSpace(arguments[0]) == "" {
+		Run: func(cmd *cobra.Command, args []string) {
+			if strings.TrimSpace(args[0]) == "" {
 				fmt.Println(
 					ui.Minus,
 					text.FgRed.Sprint("Anime's title is empty. Try to write the anime title first."),
@@ -30,7 +30,7 @@ func Register() *cobra.Command {
 				os.Exit(1)
 			}
 
-			if lib.IsUrlInvalid(arguments[1]) {
+			if lib.IsUrlInvalid(args[1]) {
 				fmt.Println(
 					ui.Minus,
 					text.FgRed.Sprint("The URL is invalid."),
@@ -39,8 +39,8 @@ func Register() *cobra.Command {
 			}
 
 			anime := db.Anime{
-				Title:     arguments[0],
-				Url:       arguments[1],
+				Title:     args[0],
+				Url:       args[1],
 				CreatedAt: time.Now(),
 			}
 
@@ -78,7 +78,7 @@ func Register() *cobra.Command {
 		},
 	}
 
-	register.Flags().StringVarP(&description, "description", "d", "", "Assign an description about the anime")
+	add.Flags().StringVarP(&description, "description", "d", "", "Assign an description about the anime")
 
-	return register
+	return add
 }

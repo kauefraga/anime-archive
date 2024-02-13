@@ -17,7 +17,7 @@ func List() *cobra.Command {
 		Use:     "list",
 		Short:   "Query and show all the registered animes",
 		Example: "anime-archive list",
-		Run: func(command *cobra.Command, arguments []string) {
+		Run: func(cmd *cobra.Command, args []string) {
 			if tail > 0 && head > 0 {
 				fmt.Println(ui.Minus, "Choose tail or head.")
 				os.Exit(1)

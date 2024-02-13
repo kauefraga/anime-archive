@@ -24,7 +24,7 @@ func Status() *cobra.Command {
 	return &cobra.Command{
 		Use:   "status",
 		Short: "Lists some of the available websites for watching anime",
-		Run: func(command *cobra.Command, arguments []string) {
+		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println("Here are the available websites:")
 
 			for _, site := range sites {

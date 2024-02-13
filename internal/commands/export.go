@@ -19,7 +19,7 @@ func Export() *cobra.Command {
 		Use:     "export",
 		Short:   "Exports the database in a choosen file format (default: plain text)",
 		Example: "anime-archive export",
-		Run: func(command *cobra.Command, arguments []string) {
+		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println(ui.Interrogative, "Querying animes...")
 
 			var amountOfAnimes int64

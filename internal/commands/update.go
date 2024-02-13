@@ -19,8 +19,8 @@ func Update() *cobra.Command {
 		Short:   "Updates an anime registry",
 		Example: "anime-archive update 'Mushoku Tensei' --description 'This anime is so good!'",
 		Args:    cobra.ExactArgs(1),
-		Run: func(command *cobra.Command, arguments []string) {
-			if strings.TrimSpace(arguments[0]) == "" {
+		Run: func(cmd *cobra.Command, args []string) {
+			if strings.TrimSpace(args[0]) == "" {
 				fmt.Println(
 					ui.Minus,
 					text.FgRed.Sprint("Anime's title is empty. Try to write the anime title first."),
@@ -30,7 +30,7 @@ func Update() *cobra.Command {
 
 			var anime db.Anime
 			client := db.Connect()
-			client.Where("title LIKE ?", "%"+arguments[0]+"%").First(&anime)
+			client.Where("title LIKE ?", "%"+args[0]+"%").First(&anime)
 
 			if len(description) > 0 {
 				anime.Description = description

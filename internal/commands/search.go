@@ -17,8 +17,8 @@ func Search() *cobra.Command {
 		Short:   "Searches for an anime with a title and return it with a url",
 		Example: "anime-archive search 'Mushoku Tensei'",
 		Args:    cobra.ExactArgs(1),
-		Run: func(command *cobra.Command, arguments []string) {
-			if strings.TrimSpace(arguments[0]) == "" {
+		Run: func(cmd *cobra.Command, args []string) {
+			if strings.TrimSpace(args[0]) == "" {
 				fmt.Println(
 					ui.Minus,
 					text.FgRed.Sprint("Anime's title is empty. Try to write an anime title."),
@@ -30,7 +30,7 @@ func Search() *cobra.Command {
 
 			var anime db.Anime
 			client := db.Connect()
-			client.Where("title LIKE ?", "%"+arguments[0]+"%").First(&anime)
+			client.Where("title LIKE ?", "%"+args[0]+"%").First(&anime)
 
 			fmt.Println(text.FgGreen.Sprint("Found!"))
 			fmt.Println(ui.Plus, "Title:", anime.Title)

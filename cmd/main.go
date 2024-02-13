@@ -17,7 +17,7 @@ func main() {
 
 	rootCmd.AddCommand(commands.Status())
 	rootCmd.AddCommand(commands.List())
-	rootCmd.AddCommand(commands.Register())
+	rootCmd.AddCommand(commands.Add())
 	rootCmd.AddCommand(commands.Update())
 	rootCmd.AddCommand(commands.Search())
 	rootCmd.AddCommand(commands.Export())
